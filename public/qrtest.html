@@ -1,0 +1,14 @@
+<!--[if ie]><script type="text/javascript" src="/vendors/excanvas/excanvas.js"></script><![endif]-->
+<script src="../node_modules/qrcode-npm/qrcode.js"></script>
+<canvas id="test"></canvas>
+<script>
+
+var qrcodedraw = new QRCodeLib.QRCodeDraw();
+
+qrcodedraw.draw(document.getElementById('test'),"this text will be in the code!", function(error,canvas){
+  if(error){
+     return console.log('Error =( ',error);
+  }
+  console.log('success!');
+});
+</script>
