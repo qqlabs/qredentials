@@ -20,9 +20,25 @@
     var app = angular.module('qred-profile', []);
     app.controller('ProfileController', ['$scope', function($scope) {
         $scope.profile = {
-            name: "Roy",
-            company: "HackSC",
-            title: "Dev"
+            name : "Roy Chang",
+			pic : "http://placehold.it/300x240&text=[img]",
+            company : "HackSC",
+            title : "Senior Executive Intern",
+			addresses : [
+			"123 Easy St.",
+			"Apt 44",
+			"District 13"
+			],
+			city : 'San Jose',
+			state: 'CA',
+			country: 'United States',
+			postal: '95129',
+			email : 'rchang@zheng.com',
+			sites : [
+			{url: 'http://google.com', name: 'Google'},
+			{url:'http://yahoo.com',name:'Yahoo'},
+			{url:'http://youtube.com',name:'YouTube'}
+			]
         };
         this.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
@@ -35,7 +51,12 @@
         };
     }]);
     app.controller('WallController', ['$scope', function($scope) {
-        $scope.posts = [];
+        $scope.posts = [
+		{author:'Kate',pic:'http://placehold.it/50x50&text=[K]', content:'Yo wanna buy a joint', 
+		comments : [{author:'Quentin',pic:'http://placehold.it/50x50&text=[Q]', content:'hell yea dawg'},{author:'Jack',pic:'http://placehold.it/50x50&text=[J]', content:'durgz maek u short n r not c00l'}]
+		},
+		{author:'Jack',pic:'http://placehold.it/50x50&text=[J]', content:'u suk at programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'},
+		];
         this.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
             success(function(data, status, headers, config) {
