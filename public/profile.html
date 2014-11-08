@@ -33,18 +33,18 @@
     <div class="large-4 columns ">
       <div class="panel">
         <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-        <h5>Insert Your Name Here</h5>
+        <h5>{{first_name}} {{last_name}}</h5>
         <hr>
         <h6>Location</h6>
         <hr>
-        <h6>Company</h6>
+        <h6>{{ company }}</h6>
                 <ul class="circle">
-  <li>Software Engineer</li>
+  <li>{{ title }}</li>
     </ul>
         <hr>
         <h6> Phone Number </h6>
         <ul class="circle">
-  <li>858-900-4077</li>
+  <li ng-repeat="number in profile.phone_numbers">{{number}}</li>
     </ul>
     <hr>
          <h6> Email Address </h6>
@@ -54,8 +54,7 @@
     <hr>
         <h6> Website </h6>
         <ul class="circle">
-  <li>ILikeBirds.com</li>
-  <li>IAmStrange.com</li>
+  <li ng-repeat="site in profile.sites"><a ng-href="site.url">{{ site.name }}</a></li>
     </ul>
     <hr>
       </div>
