@@ -1,0 +1,47 @@
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body>
+   <article>
+ 
+       <form data-abide>
+
+  <div class="name-field">
+    <label>Your name <small>required</small>
+      <input type="text" required pattern="[a-zA-Z]+">
+    </label>
+    <small class="error">Name is required and must be a string.</small>
+  </div>
+  <div class="email-field">
+    <label>Email <small>required</small>
+      <input type="email" required>
+    </label>
+    <small class="error">An email address is required.</small>
+  </div>
+    <div class="password-field">
+    <label>Password <small>required</small>
+      <input type="password" id="password" required pattern="[a-zA-Z]+">
+    </label>
+    <small class="error">Your password must match the requirements</small>
+  </div>
+  <div class="password-confirmation-field">
+    <label>Confirm Password <small>required</small>
+      <input type="password" required pattern="[a-zA-Z]+" data-equalto="password">
+    </label>
+    <small class="error">The password did not match</small>
+  </div>
+  <button type="submit">Update</button>
+</form>
+ 
+      </article>
+ 
+      <hr/>
+    
+  </body>
+</html>
