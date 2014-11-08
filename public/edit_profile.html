@@ -32,13 +32,13 @@
   <h3> My Account </h3>
   <div class="name-field">
     <label>Your name <small>required</small>
-      <input ng-model="name" type="text" required pattern="[a-zA-Z]+">
+      <input ng-model="profile.name" type="text" required pattern="[a-zA-Z]+">
     </label>
     <small class="error">Name is required and must be a string.</small>
   </div>
   <div class="email-field">
     <label>Email <small>required</small>
-      <input ng-model="email" type="email" required>
+      <input ng-model="profile.email" type="email" required>
     </label>
     <small class="error">An email address is required.</small>
   </div>
@@ -58,13 +58,15 @@
   <h3> My Details </h3>
   <div ng-repeat="site in profile.sites" class="url-field">
     <label>Edit a website
-      <input ng-model="site.url" type="url" required>
+      <input ng-model="site.name" type="text" required>
+	  <input ng-model="site.url" type="url" required>
     </label>
     <small class="error">This is not a valid URL</small>
   </div> 
   <div class="url-field">
     <label>Add a website 
-      <input ng-model="new_url" type="url" required>
+      <input placeholder="Site name" ng-model="new_site_name" type="text" required>
+      <input placeholder="Site URL" ng-model="new_site_url" type="url" required>
     </label>
     <small class="error">This is not a valid URL</small>
   </div>
@@ -73,13 +75,13 @@
   <label> Add an Address Line
   <input ng-model="new_address" type="text"> </label>
   <label> City
-  <input ng-model="city" type="text"> </label>
+  <input ng-model="profile.city" type="text"> </label>
   <label> State
-  <input ng-model="state" type="text"> </label>
+  <input ng-model="profile.state" type="text"> </label>
   <label> Postal Code
-  <input ng-model="postal" type="text"> </label>
+  <input ng-model="profile.postal" type="text"> </label>
   <label> Country
-  <input ng-model="country" type="text"> </label>
+  <input ng-model="profile.country" type="text"> </label>
 
     <label ng-repeat="number in profile.phone_numbers"> Edit a Phone number
   <input ng-model="number" type="text"> </label>
@@ -87,9 +89,9 @@
   <input ng-model="new_number" type="text"> </label>
 
     <label> Company
-  <input ng-model="company" type="text"> </label>
+  <input ng-model="profile.company" type="text"> </label>
       <label> Title
-  <input ng-model="title" type="text"> </label>
+  <input ng-model="profile.title" type="text"> </label>
   <hr>
   <button type="submit">Update</button>
 </form>

@@ -141,7 +141,6 @@
                     }]
                 };
 				$scope.profile=data;
-				for (var attrname in data) { $scope[attrname] = data[attrname]; }
             });
         };
 		$scope.load();
