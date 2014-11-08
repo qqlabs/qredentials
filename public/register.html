@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js" lang="en">
+<html class="no-js" lang="en" ng-app="qred-register">
 
 <head>
     <meta charset="utf-8" />
@@ -40,23 +40,23 @@
 
             <article>
 
-                <form data-abide>
+                <form data-abide ng-controller="RegisterController" ng-submit="submit()">
 
                     <div class="name-field">
                         <label>Your name <small>required</small>
-                            <input type="text" required pattern="[a-zA-Z]+">
+                            <input ng-model="name" type="text" required pattern="[a-zA-Z]+">
                         </label>
                         <small class="error">Name is required and must be a string.</small>
                     </div>
                     <div class="email-field">
                         <label>Email <small>required</small>
-                            <input type="email" required>
+                            <input ng-model="email" type="email" required>
                         </label>
                         <small class="error">An email address is required.</small>
                     </div>
                     <div class="password-field">
                         <label>Password <small>required</small>
-                            <input type="password" id="password" required pattern="[a-zA-Z]+">
+                            <input ng-model="password" type="password" id="password" required pattern="[a-zA-Z]+">
                         </label>
                         <small class="error">Your password must match the requirements</small>
                     </div>

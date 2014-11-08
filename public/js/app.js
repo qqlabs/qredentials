@@ -3,6 +3,7 @@
     app.controller('LoginFormController', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.emailTaken = false;
         $scope.submit = function() {
+        $scope.emailTaken = false;
             $http.post('http://wontonst.com', {
                 email: $scope.email,
                 password: $scope.password
@@ -41,3 +42,11 @@
             };
         }]);
 })();
+(function() {
+var app = angular.module('qred-register',[]);
+app.controller('RegisterController',['$scope',function($scope){
+$scope.submit=function(){
+
+}
+}]);
+}();
