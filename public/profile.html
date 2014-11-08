@@ -9,7 +9,7 @@
     <script src="js/angular.min.js"></script>
     <script src="js/app.js"></script>
   </head>
-  <body ng-controller="ProfileController">
+  <body>
     
        
   <div class="row">
@@ -30,16 +30,16 @@
   <div class="row">
   
      
-    <div class="large-4 columns ">
+    <div class="large-4 columns " ng-controller="ProfileController">
       <div class="panel">
         <a href="#"><img src="http://placehold.it/300x240&text=[img]"/></a>
-        <h5>{{first_name}} {{last_name}}</h5>
+        <h5>{{profile.name}}</h5>
         <hr>
         <h6>Location</h6>
         <hr>
-        <h6>{{ company }}</h6>
+        <h6>{{ profile.company }}</h6>
                 <ul class="circle">
-  <li>{{ title }}</li>
+  <li>{{ profile.title }}</li>
     </ul>
         <hr>
         <h6> Phone Number </h6>

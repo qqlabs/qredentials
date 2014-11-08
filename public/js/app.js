@@ -3,7 +3,7 @@
     app.controller('LoginFormController', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.emailTaken = false;
         $scope.submit = function() {
-        $scope.emailTaken = false;
+            $scope.emailTaken = false;
             $http.post('http://wontonst.com', {
                 email: $scope.email,
                 password: $scope.password
@@ -17,36 +17,41 @@
     }]);
 })();
 (function() {
-        var app = angular.module('qred-profile', []);
-        app.controller('ProfileController', ['$scope', function($scope) {
-                $scope.profile = {};
-                this.load = function(id) {
-                    $http.get('&id=' + id). //TODO get URL
-                    success(function(data, status, headers, config) {
-                        $scope.profile = JSON.parse(data);
-                    }).
-                    error(function(data, status, headers, config) {
-                        //TODO error
-                    });
-                }]); 
-		app.controller('WallController', ['$scope', function($scope) {
-            $scope.posts = [];
-            this.load = function(id) {
-                $http.get('&id=' + id). //TODO get URL
-                success(function(data, status, headers, config) {
-                    $scope.posts = JSON.parse(data);
-                }).
-                error(function(data, status, headers, config) {
-                    //TODO error
-                });
-            };
-        }]);
+    var app = angular.module('qred-profile', []);
+    app.controller('ProfileController', ['$scope', function($scope) {
+        $scope.profile = {
+            name: "Roy",
+            company: "HackSC",
+            title: "Dev"
+        };
+        this.load = function(id) {
+            $http.get('&id=' + id). //TODO get URL
+            success(function(data, status, headers, config) {
+                $scope.profile = JSON.parse(data);
+            }).
+            error(function(data, status, headers, config) {
+                //TODO error
+            });
+        };
+    }]);
+    app.controller('WallController', ['$scope', function($scope) {
+        $scope.posts = [];
+        this.load = function(id) {
+            $http.get('&id=' + id). //TODO get URL
+            success(function(data, status, headers, config) {
+                $scope.posts = JSON.parse(data);
+            }).
+            error(function(data, status, headers, config) {
+                //TODO error
+            });
+        };
+    }]);
 })();
 (function() {
-var app = angular.module('qred-register',[]);
-app.controller('RegisterController',['$scope',function($scope){
-$scope.submit=function(){
+        var app = angular.module('qred-register', []);
+        app.controller('RegisterController', ['$scope', function($scope) {
+            $scope.submit = function() {
 
-}
-}]);
-}();
+            };
+        }]);
+    })();
