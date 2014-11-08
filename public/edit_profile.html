@@ -8,10 +8,26 @@
     <script src="js/vendor/modernizr.js"></script>
   </head>
   <body>
-   <article>
+<div class="row">
+    <div class="large-3 columns">
+      <div class="panel">
+        <h1>Profile</h1>
+      </div>
+    </div>
+    <div class="large-9 columns">
+    <ul class="right button-group">
+      <a href="wall.html" class="success button inline">View My Wallet</a>
+      <a href="profile.html" class="button inline">View My Profile</a>
+      <a href="#" class="alert button inline">Sign Out</a>
+      </ul>
+      </div>
+  </div>
+   
+  <div class="row">
+    <article>
  
        <form data-abide>
-
+  <h3> My Account </h3>
   <div class="name-field">
     <label>Your name <small>required</small>
       <input type="text" required pattern="[a-zA-Z]+">
@@ -36,12 +52,30 @@
     </label>
     <small class="error">The password did not match</small>
   </div>
+  <hr>
+  <h3> My Details </h3>
+  <div class="url-field">
+    <label>Add a website 
+      <input type="url" required>
+    </label>
+    <small class="error">This is not a valid URL</small>
+  </div>
+
+  <label> Address
+  <input type="text"> </label>
+
+    <label> Add a phone number
+  <input type="text"> </label>
+
+    <label> Company
+  <input type="text"> </label>
+  <hr>
   <button type="submit">Update</button>
 </form>
  
       </article>
- 
-      <hr/>
+    </div>
+  </footer>
     
   </body>
 </html>
