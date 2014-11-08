@@ -6,8 +6,13 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+
 var routes = require('./routes');
 var users = require('./routes/user');
+
+//mongodb
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://MongoLab-e:c6qPAbl4ZqxOO8TwrUyGneRcwbnTUvxY2tS5NG4S8cI-@ds045107.mongolab.com:45107/MongoLab-e');
 
 var app = express();
 
