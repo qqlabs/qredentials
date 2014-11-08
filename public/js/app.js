@@ -17,7 +17,27 @@
 })();
 (function(){
 var app = angular.module('qred-profile',[]);
+app.controller('ProfileController',['$scope',function($scope){
+$scope.profile = {};
+this.load = function(id){
+$http.get('&id='+id).//TODO get URL
+success(function(data,status,headers,config){
+$scope.profile = JSON.parse(data);
+}).
+error(function(data,status,headers,config){
+//TODO error
+});
+}]);
 app.controller('WallController',['$scope',function($scope){
-
+$scope.posts = [];
+this.load = function(id){
+$http.get('&id='+id).//TODO get URL
+success(function(data,status,headers,config){
+$scope.posts = JSON.parse(data);
+}).
+error(function(data,status,headers,config){
+//TODO error
+});
+};
 }]);
 })();
