@@ -152,6 +152,7 @@ app.directive("myStyle", function (){
 	//'background-image' : 'url(/img/gray.jpg)'
 	'background-color' : '#333'
 	}
+	$('#fuckthis').css('background-color' , '#333');
 	};
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
