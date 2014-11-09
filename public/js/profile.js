@@ -70,11 +70,12 @@
                 $scope.profile.site = data.sites[0].url;
                 $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + data.qrurl;
 
-                var vc = "BEGIN:VCARD\nVERSION:3.0\n";
-                vc += "N:" + lastName + ";" + firstName + "\n";
-                vc += "FN:" + firstName + "\n";
-                vc += "EMAIL:" + email + "\n";
-                vc += "TEL;TYPE=HOME:" + phone + "\n";
+                splitname = data.name.split(" ");
+                vc = "BEGIN:VCARD\nVERSION:3.0\n";
+                vc += "N:" + splitname[1] + ";" + splitname[0] + "\n";
+                vc += "FN:" + splitname[0] + "\n";
+                vc += "EMAIL:" + data.email + "\n";
+                vc += "TEL;TYPE=HOME:" + data.phone_numbers[0] + "\n";
                 vc += "END:VCARD";
                 vc = encodeURIComponent(vc);
 
