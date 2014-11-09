@@ -113,11 +113,14 @@
         $scope.load();
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
-	$scope.$on('$viewContentLoaded', function() {
+	$scope.$on('$includeContentLoaded', function() {
 	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
 	console.log('logging parent');
 	console.log($scope.$parent);
 });
+
+	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+	console.log("wtf man");
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
