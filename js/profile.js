@@ -218,15 +218,24 @@
         $scope.load();
         $scope.submit = function() {
             if ($scope.new_site_name != '' && $scope.new_site_url != '') {
+                if($scope.profile.sites == null){
+                    $scope.profile.sites = [];
+                }
                 $scope.profile.sites.push({
                     name: $scope.new_site_name,
                     url: $scope.new_site_url
                 });
             }
             if ($scope.new_phone_number != '') {
+                if($scope.profile.phone_numbers == null){
+                    $scope.profile.phone_numbers = [];
+                }
                 $scope.profile.phone_numbers.push($scope.new_phone_number);
             }
             if ($scope.new_address != '') {
+                if($scope.profile.addresses == null){
+                    $scope.profile.addresses = [];
+                }
                 $scope.profile.addresses.push($scope.new_address);
             }
             console.log($scope.profile);
