@@ -30,11 +30,27 @@
 
         $('#fuckthis').css('background-image', 'url(/img/desk.jpg)');
         $scope.profile = {};
-        $scope.load = function() {
+        $scope.load = function(id) {
             // $http.get('&id=' + id). //TODO get URL
             $http.defaults.headers.common.Authorization = localStorageService.get('token');
-            $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
+            $http.get('/api/v1/users/' + id).success(function(data, status, headers, config) {
                 $scope.profile = data;
+                $scope.profile.address = data.addresses[0];
+                $scope.profile.phone_number = data.phone_numbers[0];
+                $scope.profile.site = data.sites[0].url;
+                $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http%3A%2F%2Fqred.cloudapp.net%2Fbrowse.html%3Fid%3D" + data.user.uuid;
+
+                splitname = data.name.split(" ");
+                vc = "BEGIN:VCARD\nVERSION:3.0\n";
+                vc += "N:" + splitname[1] + ";" + splitname[0] + "\n";
+                vc += "FN:" + splitname[0] + "\n";
+                vc += "EMAIL:" + data.email + "\n";
+                vc += "TEL;TYPE=HOME:" + data.phone_numbers[0] + "\n";
+                vc += "END:VCARD";
+                vc = encodeURIComponent(vc);
+
+                $scope.profile.qrcontact = ("http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + vc);
+                
             }).
             error(function(data, status, headers, config) {
                 //TODO error
@@ -141,9 +157,27 @@
     app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
         $('#fuckthis').css('background-image', 'url(/img/gray.jpg)');
         $scope.load = function() {
+            // $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            // $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
+            //     $scope.profile = data;
             $http.defaults.headers.common.Authorization = localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
+                $scope.profile.address = data.addresses[0];
+                $scope.profile.phone_number = data.phone_numbers[0];
+                $scope.profile.site = data.sites[0].url;
+                $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http://qred.cloudapp.net/browse.html?id=" + data.user.uuid;
+
+                splitname = data.name.split(" ");
+                vc = "BEGIN:VCARD\nVERSION:3.0\n";
+                vc += "N:" + splitname[1] + ";" + splitname[0] + "\n";
+                vc += "FN:" + splitname[0] + "\n";
+                vc += "EMAIL:" + data.email + "\n";
+                vc += "TEL;TYPE=HOME:" + data.phone_numbers[0] + "\n";
+                vc += "END:VCARD";
+                vc = encodeURIComponent(vc);
+
+                $scope.profile.qrcontact = ("http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + vc);
             }).error(function(data, status, headers, config) {
                 //TODO "conn bad
 
