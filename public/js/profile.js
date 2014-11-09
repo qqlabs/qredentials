@@ -8,23 +8,38 @@
             templateUrl: '/directives/mycard.html',
         })
         .when('/edit',{
-         templateUrl: '/directives/edit_profile.html',
-     })
+           templateUrl: '/directives/edit_profile.html',
+       })
         .when('/wall',{
-         templateUrl: '/directives/wall.html',
-     });
+           templateUrl: '/directives/wall.html',
+       });
+    });
+
+    app.directive('backImg', function(){
+        return function(scope, element, attrs){
+            attrs.$observe('backImg', function(value) {
+                element.css({
+                    'background': 'url(' + value +')'
+                });
+            });
+        };
     });
     app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
-       $rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
+       $rootScope.getBg = function(){
+           return {
+	//'background-image' : 'url(/img/desk.jpg)'
+    'background-color' : '#555'
+}
+};
+}]);
 
-   }]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
-       $rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
-       $scope.$on('$includeContentLoaded',function(){
-           console.log("fuck!");
-       });
-       $scope.profile = {};
-       $scope.load = function(id) {
+     $rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
+     $scope.$on('$includeContentLoaded',function(){
+         console.log("fuck!");
+     });
+     $scope.profile = {};
+     $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
             success(function(data, status, headers, config) {
                 $scope.profile = data;
@@ -132,11 +147,24 @@ app.controller('WallController', ['$scope', '$rootScope', '$http', function($sco
     }]);
 app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
 
-	$rootScope.bg = {'background-image' : 'url(/img/gray.jpg)'};
+    <<<<<<< HEAD
+    $rootScope.bg = {'background-image' : 'url(/img/gray.jpg)'};
     $scope.load = function() {
         $http.get('/').success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
+            =======
+            $rootScope.getBg = function(){
+               return {
+	//'background-image' : 'url(/img/gray.jpg)'
+	'background-color' : '#333'
+}
+};
+$scope.load = function() {
+    $http.get('/').success(function(data, status, headers, config) {
+        
+    }).error(function(data, status, headers, config) {
+        >>>>>>> 2a8a77293d9e646eed8701fd217b8fd0261e03ae
                 //TODO "conn bad
 
                 data = {
