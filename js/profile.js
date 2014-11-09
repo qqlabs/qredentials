@@ -243,7 +243,6 @@
             $http.post('/api/v1/users/me', {
                 profile: $scope.profile
             }).success(function(data, status, headers, config) {
-                console.log(response);
                 $location.path('/profile'); //TODO GET PROFILES URL
             }).error(function(data, status, headers, config) {
                 $scope.emailTaken = true; //TODO maybe have two errors "conn bad" and "email taken"
