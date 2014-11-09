@@ -14,10 +14,12 @@
 			templateUrl: '/directives/wall.html',
 			});
     });
-	app.directive('backImg', function(){
-    return function(scope, rootScope, element, attrs){
+app.directive('backImg', function(){
+    return function(scope, element, attrs){
         attrs.$observe('backImg', function(value) {
-            element.css(rootscope.getBg());
+            element.css({
+                'background': 'url(' + value +')'
+            });
         });
     };
 });
