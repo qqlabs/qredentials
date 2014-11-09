@@ -112,7 +112,7 @@
         };
         $scope.load();
     }]);
-    app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
+    app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
 
 	$rootScope.bg = {'background-image' : 'url(img/gray.jpg)'};
         $scope.load = function() {
@@ -176,7 +176,7 @@
             });
         };
     }]);
-    app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
+    app.controller('RolodexController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {  
 	
 	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
         $scope.cards = [];
