@@ -1,0 +1,122 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="qred-profile">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <script src="js/vendor/modernizr.js"></script>
+  </head>
+  <body style="background-image:url('img/desk.jpg')">
+    
+       
+  <div class="row">
+    <div class="large-3 columns">
+      <div class="panel">
+        <h1>Profile</h1>
+      </div>
+    </div>
+    <div class="large-9 columns">
+    <ul class="right button-group">
+      <a href="wall.html" class="success button inline">View My Wallet</a>
+      <a href="mycard.html" class="secondary button inline">View My Card</a>
+      <a href="edit_profile.html" class="button inline">Edit My Profile</a>
+      <a href="#" class="alert button inline">Sign Out</a>
+      </ul>
+      </div>
+  </div>
+   
+  <div class="row">
+  
+     
+    <div class="large-4 columns " ng-controller="ProfileController">
+      <div class="panel">
+        <a href="#"><img ng-src="{{profile.pic}}"/></a>
+        <h5>{{profile.name}}</h5>
+        <a href="qrshare.html" target="_blank" onclick="window.open('qrshare.html','myWin','resizable=1,status=1,menubar=1,toolbar=1,scrollbars=1,location=1,directories=1,width=350,height=350,top=60,left=60');return false;">Share My Q.R. Code</a>
+
+        <hr>
+        <h6 ng-repeat="address in profile.addresses">{{ address }}</h6>
+		<h6>{{ profile.city }}, {{ profile.state }}</h6>
+		<h6>{{ profile.postal }} {{ profile.country}}</h6>
+        <hr>
+        <h6>{{ profile.company }}</h6>
+                <ul class="circle">
+  <li>{{ profile.title }}</li>
+    </ul>
+        <hr>
+        <h6> Phone Number </h6>
+        <ul class="circle">
+  <li ng-repeat="number in profile.phone_numbers">{{number}}</li>
+    </ul>
+    <hr>
+         <h6> Email Address </h6>
+        <ul class="circle">
+  <li>{{ profile.email }}</li>
+    </ul>
+    <hr>
+        <h6> Website </h6>
+        <ul class="circle">
+  <li ng-repeat="site in profile.sites"><a ng-href="{{site.url}}">{{ site.name }}</a></li>
+    </ul>
+    <hr>
+      </div>
+    </div>
+     
+    <div class="large-8 columns" ng-controller="WallController as wc">
+      <form data-abide ng-submit="submit()">
+     <div class="row">
+      <div class ="large-8 columns">
+      <label><strong>Write a Post</strong>
+        <textarea ng-model="new_post" placeholder="Say Hi!"></textarea>
+      </label>
+      <button type="submit" class="small button">Post</button>
+      </div>
+    </div>
+	</form>
+       
+      <div class="row" ng-repeat="post in posts | limitTo:5">
+        <div class="large-2 columns small-3"><img ng-src="{{post.pic}}"/></div>
+        <div class="large-10 columns">
+          <p><strong>{{post.author}}</strong> {{post.content}} </p>
+          <ul class="inline-list">
+            <li><a href="">Reply</a></li>
+            <li><a href="">Share</a></li>
+          </ul>
+ <div ng-show="post.comments.length != 0">
+          <h6>{{post.comments.length}} Comments</h6>c 
+          <div class="row" ng-repeat="comment in post.comments" style = "padding-top:5px; padding-bottom:5px">
+            <div class="large-2 columns small-3"><img ng-src="{{comment.pic}}"/></div>
+            <div class="large-10 columns"><p><strong>{{comment.author}}</strong> {{comment.content}}</p></div>
+          </div>
+		  </div>
+        </div>
+      <hr/>
+      </div>
+    
+    </div>
+ 
+  </div>
+ 
+ 
+   
+ 
+  <footer class="row">
+    <div class="large-12 columns">
+      <hr/>
+      <div class="row">
+        <div class="large-5 columns">
+          <p>&copy; Copyright HackSC. </p>
+        </div>
+        <div class="large-7 columns">
+        </div>
+      </div>
+    </div>
+  </footer>
+      <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/profile.js"></script>
+  </body>
+</html>

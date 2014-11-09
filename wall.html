@@ -1,0 +1,76 @@
+<!doctype html>
+<html class="no-js" lang="en" ng-app="qred-profile">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foundation | Welcome</title>
+    <link rel="stylesheet" href="css/foundation.css" />
+    <link rel="stylesheet" href="css/foundation-icons.css">
+    <link href='http://fonts.googleapis.com/css?family=Alegreya' rel='stylesheet' type='text/css'>
+    <script src="js/vendor/modernizr.js"></script>
+    <script src="js/angular.min.js"></script>
+    <script src="js/profile.js"></script>
+</head>
+
+<body style="background-image:url(img/business.jpg)">
+   <div class="row">
+    <div class="large-3 columns">
+      <div class="panel">
+        <h1>My Wallet</h1>
+      </div>
+    </div>
+    <div class="large-9 columns">
+    <ul class="right button-group">
+      <a href="profile.html" class="success button inline">View My Profile</a>
+      <a href="mycard.html" class="secondary button inline">View My Card</a>
+      <a href="edit_profile.html" class="button inline">Edit My Profile</a>
+      <a href="#" class="alert button inline">Sign Out</a>
+      </ul>
+      </div>
+  </div>
+
+
+        <div ng-controller="RolodexController as rolo" style= "font-family: 'Alegreya', serif;">
+
+                <div class="large-12 columns" style = "padding-top: 0.5cm " ng-repeat="duocards in cards" ng-if="$index % 2 == 0">
+                    <div class="row">
+                         <a href="profile.html" ng-repeat="card in cards.slice($index, $index+2)"> 
+                            <div class="large-6 small-6 columns" >
+                                <div class="panel" onMouseOver="this.style.backgroundColor='#E0E0E0'" onMouseOut="this.style.backgroundColor='white'" style = "padding:30px">
+                                    <h5 style="font-family: 'Alegreya', serif">{{ card.name }}</h5>
+                                    <h6 style="font-family: 'Alegreya', serif" class="subheader">{{ card.company }}</h6>
+                                    <div class="row">
+                                    <div class="large-5 columns" style="padding: 0px"><i class="fi-telephone"></i> {{card.phone_number}}</div>
+                                    <div class="large-7 columns end" style="padding: 0px"> <i class="fi-mail"></i> {{ card.email }}</div></div>
+                                    <div class="row">
+                                    <i class="fi-web"></i> {{card.site}}
+                                    </div>
+                                    <div class="row">
+                                    <i class="fi-address-book"></i> {{card.address}}, {{card.city}}, {{card.state}}, {{card.country}}
+                                    </div>
+                                </div> 
+                            </div>
+                        </a> 
+                 </div> 
+            </div>
+ 
+
+            <footer class="row">
+                <div class="large-12 columns">
+                    <hr/>
+                    <div class="row">
+
+                        <div class="large-6 columns">
+                            <p>© Copyright no one at all. Go to town.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+
+        </div>
+    </div>
+</body>
+
+</html>
