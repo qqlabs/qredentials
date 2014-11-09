@@ -24,7 +24,7 @@
             }).success(function(data, status, headers, config) {
                 localStorageService.set('token', data.access_token);
                 localStorageService.set('user_id', data.user.uuid);
-                window.location = "browse.html&id=" + localStorageService.get('user_id');
+                window.location = "browse.html?id=" + localStorageService.get('user_id');
             }).error(function(data, status, headers, config) {
                 $scope.emailTaken = true; //TODO maybe have two errors "conn bad" and "email taken"
             });
