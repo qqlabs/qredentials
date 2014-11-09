@@ -136,11 +136,11 @@
                 data = [{
                     author: 'Kate',
                     pic: 'http://placehold.it/50x50&text=[K]',
-                    content: 'Yo wanna buy a joint',
+                    content: 'How are you doing?',
                     comments: [{
                         author: 'Quentin',
                         pic: 'http://placehold.it/50x50&text=[Q]',
-                        content: 'hell yea dawg'
+                        content: 'today was fun'
                     }, {
                         author: 'Jack',
                         pic: 'http://placehold.it/50x50&text=[J]',
@@ -149,7 +149,7 @@
                 }, {
                     author: 'Jack',
                     pic: 'http://placehold.it/50x50&text=[J]',
-                    content: 'u suk at programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'
+                    content: 'programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'
                 }, ];
                 $scope.posts = data;
             });
@@ -241,12 +241,12 @@
             console.log($scope.profile);
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.put('/api/v1/users/me', {
-                // profile: $scope.profile
-                entities{
-                    name: profile.name,
-                    username: profile.email,                
-                    phone_numbers = profile.phone_numbers,
-                } 
+                profile: $scope.profile
+                // entities{
+                //     name: profile.name,
+                //     username: profile.email,                
+                //     phone_numbers = profile.phone_numbers,
+                // } 
             }).success(function(data, status, headers, config) {
                 $location.path('/profile'); //TODO GET PROFILES URL
             }).error(function(data, status, headers, config) {
