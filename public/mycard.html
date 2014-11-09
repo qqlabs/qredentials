@@ -40,8 +40,16 @@
             <article ng-controller="ProfileController">
                                      <a href="profile.html"> 
                                 <div class="panel" onMouseOver="this.style.backgroundColor='#E0E0E0'" onMouseOut="this.style.backgroundColor='white'" style="padding: 50px">
-                                    <h1 style="font-family: 'Calligraffitti', cursive;"> {{ profile.name }} </h1>
-									<img ng-src="{{profile.pic}}"></img>
+                                    <div class ="row">
+                                        <div class = "large-5 column">
+                                            <h1 style="font-family: 'Calligraffitti', cursive;"> {{ profile.name }} 
+                                            </h1>
+                                        </div>
+
+                                        <div class = "large-2 column large-offset-5" style="padding: 0px">
+									       <img ng-src="{{profile.pic}}" height="100" width="100"></img> 
+                                        </div>
+                                    </div>
                                     <hr>
                                     <h6 style="font-family: 'Alegreya', serif" class="subheader">{{ profile.company }} </h6>
                                     <hr>
