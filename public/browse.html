@@ -7,13 +7,22 @@
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
   </head>
-  <body>
-      <footer class="row">
+  <body ng-controller="BrowseController as browseCtrl" ng-style="{{bg}}" >
+  
+  <div ng-view></div>
+  
+  
+  
+  
+  
+  
+ 
+  <footer class="row">
     <div class="large-12 columns">
       <hr/>
       <div class="row">
         <div class="large-5 columns">
-          <p>© Copyright HackSC. </p>
+          <p>&copy; Copyright HackSC. </p>
         </div>
         <div class="large-7 columns">
         </div>
@@ -21,6 +30,7 @@
     </div>
   </footer>
       <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
     <script src="js/jquery-2.1.1.js"></script>
     <script src="js/foundation.min.js"></script>
     <script src="js/profile.js"></script>

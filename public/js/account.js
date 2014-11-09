@@ -1,9 +1,8 @@
 (function() {
     var app = angular.module('qred-account', ['ngRoute']);
     app.config(function($routeProvider) {
-        $routeProvider.when('/', {
-                templateUrl: '/directives/register.html',
-                controller: 'RegisterController'
+        $routeProvider.when('/browse', {
+                templateUrl: '/profile.html',
             })
             .when('/login', {
                 templateUrl: '/directives/login.html',

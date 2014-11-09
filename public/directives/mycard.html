@@ -1,0 +1,57 @@
+
+    <div class="row">
+        <div class="large-12 columns">
+            <div class="nav-bar right">
+                <ul class="button-group">
+      <a href="profile.html" class="success button inline">View My Profile</a>
+      <a href="edit_profile.html" class="button inline">Edit My Profile</a>
+      <a href="wall.html" class="secondary button inline">View My Wallet</a>
+
+      <a href="#" class="alert button inline">Sign Out</a>
+                </ul>
+            </div>
+            <h1 style="color:white">QRED </h1>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+
+        <div class="large-8 large-offset-2 columns" role="content" style= "font-family: 'Alegreya', serif; padding: 30px">
+            <article ng-controller="ProfileController">
+                                     <a href="profile.html"> 
+                                <div class="panel" onMouseOver="this.style.backgroundColor='#E0E0E0'" onMouseOut="this.style.backgroundColor='white'" style="padding: 50px">
+                                    <div class ="row">
+                                        <div class = "large-5 column">
+                                            <h1 style="font-family: 'Calligraffitti', cursive;"> {{ profile.name }} 
+                                            </h1>
+                                        </div>
+
+                                        <div class = "large-2 column large-offset-5" style="padding: 0px">
+									       <img ng-src="{{profile.pic}}" height="100" width="100"></img>
+                                        </div>
+
+                                    </div>
+                                    <hr>
+                                    <h6 style="font-family: 'Alegreya', serif" class="subheader">{{ profile.company }} </h6>
+                                    <hr>
+                                    <div class="row">
+                                    <div class="large-5 columns" style="padding: 0px"><i class="fi-telephone"></i> {{ profile.phone_number }}</div>
+                                    <div class="large-7 columns end" style="padding: 0px"> <i class="fi-mail"></i> {{ profile.email }}</div></div>
+                                    <div class="row">
+                                    <i class="fi-web"></i> {{ profile.site }}
+                                    </div>
+                                    <div class="row">
+                                    <i class="fi-address-book"></i> {{ profile.address}}, {{ profile.city }}, {{ profile.state}} , {{ profile.country }}
+                                    </div>
+                                </div> 
+                             </a>
+
+            </article>
+
+        </div>
+
+    </div>
