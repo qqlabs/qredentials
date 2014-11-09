@@ -16,12 +16,6 @@
             });
         };
     }]);
-    app.directive('royDiv', function() {
-        return {
-            restrict: 'E',
-            templateUrl: 'roy.html'
-        };
-    });
     app.controller('ProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.profile = {};
         $scope.load = function(id) {
@@ -66,8 +60,16 @@
         };
         $scope.load();
     }]);
-    app.controller('WallController', ['$scope', function($scope) {
-        $scope.posts = [{
+    app.controller('WallController', ['$scope','$http', function($scope,$http) {
+        $scope.posts = [];
+        $scope.load = function(id) {
+            $http.get('&id=' + id). //TODO get URL
+            success(function(data, status, headers, config) {
+                $scope.posts = JSON.parse(data);
+            }).
+            error(function(data, status, headers, config) {
+                //TODO error
+				data =[{
             author: 'Kate',
             pic: 'http://placehold.it/50x50&text=[K]',
             content: 'Yo wanna buy a joint',
@@ -85,15 +87,10 @@
             pic: 'http://placehold.it/50x50&text=[J]',
             content: 'u suk at programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'
         }, ];
-        this.load = function(id) {
-            $http.get('&id=' + id). //TODO get URL
-            success(function(data, status, headers, config) {
-                $scope.posts = JSON.parse(data);
-            }).
-            error(function(data, status, headers, config) {
-                //TODO error
+		$scope.posts=data;
             });
         };
+		$scope.load();
     }]);
     app.controller('RegisterController', ['$scope', '$http', function($scope, $http) {
         $scope.submit = function() {
