@@ -115,7 +115,7 @@
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
 	$scope.$on('$viewContentLoaded', function() {
 	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
-	console.log($parent);
+	console.log($scope.$parent);
 });
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
