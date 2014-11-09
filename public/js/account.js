@@ -34,7 +34,7 @@
                 password: $scope.password,
                 action: "register"
             }).success(function(data, status, headers, config) {
-                console.log(response);
+                console.log(data);
                 $location.path('/login'); //TODO GET PROFILES URL
             }).error(function(data, status, headers, config) {
                 $scope.emailTaken = true; //TODO maybe have two errors "conn bad" and "email taken"
