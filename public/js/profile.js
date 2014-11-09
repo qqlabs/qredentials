@@ -68,6 +68,7 @@
                 $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + data.qrurl;
             });
         };
+        $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=qred.azurewebsites.net/browse.html";
         $scope.load();
     }]);
     app.controller('WallController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
