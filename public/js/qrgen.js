@@ -78,3 +78,7 @@ function generateVCARD(width, height, lastName, firstName, email, phone){
 	image.setAttribute('src', "http://chart.apis.google.com/chart?cht=qr&chs=" + width + "x" + height + "&chl=" + vc);
 	return image;
 }
+
+function generateURLCARD(width, height, info){
+	return ("http://chart.apis.google.com/chart?cht=qr&chs=" + width + "x" + height + "&chl=" + info);
+}
