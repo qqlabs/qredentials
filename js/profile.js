@@ -8,6 +8,9 @@
         $routeProvider.when('/', {
                 templateUrl: '/directives/profile.html',
             })
+            .when('/profile', {
+                templateUrl: '/directives/profile.html',
+            })
             .when('/my', {
                 templateUrl: '/directives/mycard.html',
             })
