@@ -14,8 +14,8 @@
 			templateUrl: '/directives/wall.html',
 			});
     });
-	app.controller('BrowseController',['$scope',function($scope){
-	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
+	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
+	$rootScope.bg={'background-image' : 'url(img/desk.jpg)'};
 	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
@@ -112,11 +112,10 @@
         };
         $scope.load();
     }]);
-    app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
+    app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
 
-	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
-	console.log("wtf man");
-	console.log($scope.$parent);
+	$rootScope.bg = {'background-image' : 'url(img/gray.jpg)'};
+	$rootScope.$apply();
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
@@ -178,8 +177,10 @@
             });
         };
     }]);
-    app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
+    app.controller('RolodexController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {  
 	
+	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
+	$rootScope.$apply();
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
