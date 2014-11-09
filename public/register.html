@@ -1,86 +1,37 @@
-<!doctype html>
-<html class="no-js" lang="en" ng-app="qred">
+<div class="large-6 large-offset-3 columns" role="content">
+    <article>
+        <h3 style="color:gray; opacity:0.7"> Register </h3>
 
-<head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Foundation | Welcome</title>
-    <link rel="stylesheet" href="css/foundation.css" />
-    <link rel="stylesheet" href="css/foundation-icons.css"/>
-    <script src="js/vendor/modernizr.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/app.js"></script>
-</head>
+        <form data-abide ng-controller="RegisterController" ng-submit="submit()">
 
-<body style="background-image:url(img/business.jpg)">
-
-    <div class="row">
-        <div class="large-12 columns">
-            <div class="nav-bar right">
-                <ul class="button-group">
-                <a href="newpage.html" class=" button inline">Home</a>
-                <a href="login.html" class="success button inline">Login</a>
-                </ul>
+            <div class="name-field">
+                <label>Your name <small>required</small>
+                    <input ng-model="name" type="text" required pattern="[a-zA-Z]+">
+                </label>
+                <small class="error">Name is required and must be a string.</small>
             </div>
-            <h1 style="color:white">QRED </h1>
-            <hr/>
-        </div>
-    </div>
-
-    <div class="row">
-
-        <div class="large-6 large-offset-3 columns" role="content">
-            <article>
-            <h3 style = "color:gray; opacity:0.7"> Register </h3>
-
-                <form data-abide ng-controller="RegisterController" ng-submit="submit()">
-
-                    <div class="name-field">
-                        <label>Your name <small>required</small>
-                            <input ng-model="name" type="text" required pattern="[a-zA-Z]+">
-                        </label>
-                        <small class="error">Name is required and must be a string.</small>
-                    </div>
-                    <div class="email-field">
-                        <label>Email <small>required</small>
-                            <input ng-model="email" type="email" required>
-                        </label>
-                        <small class="error">An email address is required.</small>
-                    </div>
-                    <div class="password-field">
-                        <label>Password <small>required</small>
-                            <input ng-model="password" type="password" id="password" required pattern="[a-zA-Z]+">
-                        </label>
-                        <small class="error">Your password must match the requirements</small>
-                    </div>
-                    <div class="password-confirmation-field">
-                        <label>Confirm Password <small>required</small>
-                            <input type="password" required pattern="[a-zA-Z]+" data-equalto="password">
-                        </label>
-                        <small class="error">The password did not match</small>
-                    </div>
-                    <button type="submit">Submit</button>
-                </form>
-
-            </article>
-        </div>
-
-    </div>
-
-
-
-
-
-    <footer class="row">
-        <div class="large-12 columns">
-            <hr/>
-            <div class="row">
-                <div class="large-6 columns">
-                    <p>© Copyright HackSC.</p>
-                </div>
+            <div class="email-field">
+                <label>Email <small>required</small>
+                    <input ng-model="email" type="email" required>
+                </label>
+                <small class="error">An email address is required.</small>
             </div>
-        </div>
-    </footer>
-</body>
+            <div class="password-field">
+                <label>Password <small>required</small>
+                    <input ng-model="password" type="password" id="password" required pattern="[a-zA-Z]+">
+                </label>
+                <small class="error">Your password must match the requirements</small>
+            </div>
+            <div class="password-confirmation-field">
+                <label>Confirm Password <small>required</small>
+                    <input type="password" required pattern="[a-zA-Z]+" data-equalto="password">
+                </label>
+                <small class="error">The password did not match</small>
+            </div>
+            <button type="submit">Submit</button>
+        </form>
 
-</html>
+    </article>
+</div>
+
+</div>
