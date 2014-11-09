@@ -1,0 +1,47 @@
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>QRCode Generator</title>
+</head>
+
+<body>
+	<script src="../js/jsqr-0.2-min.js" type="text/javascript"></script>
+	URL: <input type='text' id='inURL' name='inURL' value=''>
+    <input type='submit' onclick="generateURL(document.getElementById('inURL').value);">
+	<canvas id="qrcode"></canvas>
+</body>
+<script type="text/javascript">
+		'use strict';
+		function generateURL(info) {
+			var qr = new JSQR();							// Initialize a new JSQR object.
+			var code = new qr.Code();						// Initialize a new Code object.
+
+			code.encodeMode = code.ENCODE_MODE.UTF8_SIGNATURE;			// Set the code datatype.
+			code.version = code.DEFAULT;						// Set the code version
+														// (DEFAULT = use the smallest possible version).
+			code.errorCorrection = code.ERROR_CORRECTION.H;		// Set the error correction level (H = High).
+
+			var input = new qr.Input();						// Initialize a new Input object.
+			input.dataType = input.DATA_TYPE.URL;
+			input.data = {
+				"url": info
+			};
+
+			var matrix = new qr.Matrix(input, code);			// Initialize a new Matrix object using the input
+														// and code, defined above.
+														// At this point, the QR Code get generated.
+
+			matrix.scale = 4;								// Specify the scaling for graphic output.
+			matrix.margin = 2;								// Specify the margin for graphic output.
+
+			var canvas = document.getElementById('qrcode');		// Create a new Canvas element.
+			canvas.setAttribute('width', matrix.pixelWidth);		// Set the canvas width to the size of the QR code.
+			canvas.setAttribute('height', matrix.pixelWidth);		// Set the canvas height to the size of the QR code.
+			canvas.getContext('2d').fillStyle = 'rgb(0,0,0)';		// Set the foreground color of the canvas to black.
+			matrix.draw(canvas, 0, 0);						// Draw the QR code into the canvas
+														// at position 0 (left), 0 (top).
+			// document.body.appendChild(canvas);					// Append the canvas element to the documents body.
+		};
+	</script>
+</html>
