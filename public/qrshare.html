@@ -6,20 +6,12 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/angular-route.min.js"></script>
-    <script src="js/angular-local-storage.min.js"></script>
-    <script src="js/jquery-2.1.1.js"></script>
-    <script src="js/jsqr-0.2-min.js"></script>
-    <script src="js/qrgen.js"></script>
-    <script src="js/foundation.min.js"></script>
-    <script src="js/profile.js"></script>
   </head>
-  <body ng-controller="ProfileController">
-
-   
+  <body id="fuckthis" ng-controller="BrowseController as browseCtrl" >
+  <div ng-view></div>
+     
   <div class="row">
-    <article>
+    <article ng-controller="ProfileController">
     <div class = "large-4 column">
       <h3> Share Q.R. </h3>
       <img id="qrcanvas" width="100" height="100" ng-src="{{profile.qrurl}}"></div>
@@ -31,6 +23,13 @@
     </article>
     
   </footer>
-    
+    <script src="js/angular.min.js"></script>
+    <script src="js/angular-route.min.js"></script>
+    <script src="js/angular-local-storage.min.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/jsqr-0.2-min.js"></script>
+    <script src="js/qrgen.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>
