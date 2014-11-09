@@ -240,7 +240,7 @@
             }
             console.log($scope.profile);
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
-            $http.post('/api/v1/users/me', {
+            $http.put('/api/v1/users/me', {
                 profile: $scope.profile
             }).success(function(data, status, headers, config) {
                 $location.path('/profile'); //TODO GET PROFILES URL
