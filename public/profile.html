@@ -6,8 +6,6 @@
     <title>Foundation | Welcome</title>
     <link rel="stylesheet" href="css/foundation.css" />
     <script src="js/vendor/modernizr.js"></script>
-    <script src="js/angular.min.js"></script>
-    <script src="js/profile.js"></script>
   </head>
   <body>
     
@@ -35,6 +33,14 @@
       <div class="panel">
         <a href="#"><img ng-src="{{profile.pic}}"/></a>
         <h5>{{profile.name}}</h5>
+        <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+
+<div id="myModal" class="reveal-modal" data-reveal>
+  <h2>Awesome. I have it.</h2>
+  <p class="lead">Your couch.  It is mine.</p>
+  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
+  <a class="close-reveal-modal">&#215;</a>
+</div>
         <hr>
         <h6 ng-repeat="address in profile.addresses">{{ address }}</h6>
 		<h6>{{ profile.city }}, {{ profile.state }}</h6>
@@ -111,5 +117,9 @@
       </div>
     </div>
   </footer>
+      <script src="js/angular.min.js"></script>
+    <script src="js/jquery-2.1.1.js"></script>
+    <script src="js/foundation.min.js"></script>
+    <script src="js/profile.js"></script>
   </body>
 </html>
