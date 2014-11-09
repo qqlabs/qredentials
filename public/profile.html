@@ -33,14 +33,8 @@
       <div class="panel">
         <a href="#"><img ng-src="{{profile.pic}}"/></a>
         <h5>{{profile.name}}</h5>
-        <a href="#" data-reveal-id="myModal">Click Me For A Modal</a>
+        <a href="qrshare.html" target="_blank" onclick="window.open('qrshare.html','myWin','resizable=1,status=1,menubar=1,toolbar=1,scrollbars=1,location=1,directories=1,width=350,height=350,top=60,left=60');return false;">Share My Q.R. Code</a>
 
-<div id="myModal" class="reveal-modal" data-reveal>
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>I'm a cool paragraph that lives inside of an even cooler modal. Wins!</p>
-  <a class="close-reveal-modal">&#215;</a>
-</div>
         <hr>
         <h6 ng-repeat="address in profile.addresses">{{ address }}</h6>
 		<h6>{{ profile.city }}, {{ profile.state }}</h6>
@@ -114,14 +108,6 @@
           <p>© Copyright HackSC. </p>
         </div>
         <div class="large-7 columns">
-          <ul class="inline-list right">
-            <li><a href="#">Section 1</a></li>
-            <li><a href="#">Section 2</a></li>
-            <li><a href="#">Section 3</a></li>
-            <li><a href="#">Section 4</a></li>
-            <li><a href="#">Section 5</a></li>
-            <li><a href="#">Section 6</a></li>
-          </ul>
         </div>
       </div>
     </div>
