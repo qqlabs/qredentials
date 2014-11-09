@@ -176,3 +176,67 @@
         };
     }]);
 })();
+(function() {
+    var app = angular.module('qred-rolodex', []);
+    app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {
+        $scope.cards = [];
+        $scope.load = function() {
+            $http.get('/').success(function(data, status, headers, config) {
+                console.log(data);
+            }).error(function(data, status, headers, config) {
+                data = [{
+                    name: 'Roy Zheng',
+                    phone_number: '333-333-3333',
+                    address: '123 Easy St.',
+                    city: 'San Luis Obispo',
+                    state: 'CA',
+                    country: 'USA',
+					site:'www.lame.com',
+                    email: 'roi@roy.com'
+                },
+				{
+                    name: 'James Flurry',
+					site:'www.lame.com',
+                    phone_number: '333-333-3333',
+                    address: '123 Easy St.',
+                    city: 'San Luis Obispo',
+                    state: 'CA',
+                    country: 'USA',
+                    email: 'roi@roy.com'
+                },
+				{
+                    name: 'Blake Trillington',
+					site:'www.lame.com',
+                    phone_number: '333-333-3333',
+                    address: '123 Easy St.',
+                    city: 'San Luis Obispo',
+                    state: 'CA',
+                    country: 'USA',
+                    email: 'roi@roy.com'
+                },
+				{
+                    name: 'Vlad Zhukov',
+					site:'www.lame.com',
+                    phone_number: '333-333-3333',
+                    address: '123 Easy St.',
+                    city: 'San Luis Obispo',
+                    state: 'CA',
+                    country: 'USA',
+                    email: 'roi@roy.com'
+                },
+				{
+                    name: 'Gilberto Lomberto Jose Luis Garcia de Oaxaca',
+					site:'www.lame.com',
+                    phone_number: '333-333-3333',
+                    address: '123 Easy St.',
+                    city: 'San Luis Obispo',
+                    state: 'CA',
+                    country: 'USA',
+                    email: 'roi@roy.com'
+                }];
+				$scope.cards=data;
+            });
+        };
+        $scope.load();
+    }]);
+})();
