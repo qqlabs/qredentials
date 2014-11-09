@@ -26,7 +26,7 @@
         console.log(localStorageService.keys());
     }]);
 
-    app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
+    app.controller('ProfileController', ['$scope', '$rootScope', '$http', 'localStorageService', function($scope, $rootScope, $http, localStorageService) {
 
         $('#fuckthis').css('background-image', 'url(/img/desk.jpg)');
         $scope.profile = {};
@@ -154,7 +154,7 @@
         };
         $scope.load();
     }]);
-    app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
+    app.controller('EditProfileController', ['$scope', '$http', '$rootScope', 'localStorageService', function($scope, $http, $rootScope, localStorageService) {
         $('#fuckthis').css('background-image', 'url(/img/gray.jpg)');
         $scope.load = function() {
             // $http.defaults.headers.common.Authorization = localStorageService.get('token');
