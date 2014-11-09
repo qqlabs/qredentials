@@ -118,6 +118,9 @@
 	console.log('logging parent');
 	console.log($scope.$parent);
 });
+
+	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+	console.log("wtf man");
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
