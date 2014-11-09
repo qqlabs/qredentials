@@ -17,7 +17,8 @@
 	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
 	$rootScope.getBg = function(){
 	return {
-	'background-image' : 'url(/img/desk.jpg)'
+	//'background-image' : 'url(/img/desk.jpg)'
+'background-color' : '#555'
 	}
 	};
 	}]);
@@ -126,7 +127,8 @@
 
 	$rootScope.getBg = function(){
 	return {
-	'background-image' : 'url(/img/gray.jpg)'
+	//'background-image' : 'url(/img/gray.jpg)'
+	'background-color' : '#333'
 	}
 	};
         $scope.load = function() {
