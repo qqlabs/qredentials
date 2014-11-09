@@ -176,7 +176,7 @@
         };
     }]);
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
-	$scope.bg={'background-image' : 'url(img/business.jpg)'};
+	$parent.bg={'background-image' : 'url(img/business.jpg)'};
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
