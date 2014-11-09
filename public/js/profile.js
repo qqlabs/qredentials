@@ -179,6 +179,7 @@
     app.controller('RolodexController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {  
 	
 	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
+	$rootScope.$apply();
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
