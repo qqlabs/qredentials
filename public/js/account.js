@@ -26,7 +26,7 @@
             });
         };
     }]);
-    app.controller('RegisterController', ['$scope', '$http', '$location', function($scope, $http), $location {
+    app.controller('RegisterController', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.submit = function() {
             $http.post('/res/account.php', {
                 name: $scope.name,
