@@ -19,12 +19,12 @@
 })();
 (function() {
     var app = angular.module('qred-profile', []);
-	app.directive('royDiv',function(){
-	return{
-	restrict:'E',
-	templateUrl:'roy.html'
-	};
-	});
+    app.directive('royDiv', function() {
+        return {
+            restrict: 'E',
+            templateUrl: 'roy.html'
+        };
+    });
     app.controller('ProfileController', ['$scope', function($scope) {
         $scope.profile = {
             name: "Roy Chang",
@@ -41,7 +41,7 @@
             country: 'United States',
             postal: '95129',
             email: 'rchang@zheng.com',
-			phone_numbers: [ '888-888-9999', '123-333-1111'],
+            phone_numbers: ['888-888-9999', '123-333-1111'],
             sites: [{
                 url: 'http://google.com',
                 name: 'Google'
@@ -56,7 +56,7 @@
         this.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
             success(function(data, status, headers, config) {
-                $scope.profile = JSON.parse(data);
+                $scope.profile = d
             }).
             error(function(data, status, headers, config) {
                 //TODO error
@@ -95,9 +95,9 @@
 })();
 (function() {
     var app = angular.module('qred-register', []);
-    app.controller('RegisterController', ['$scope','$http' ,function($scope,$http) {
+    app.controller('RegisterController', ['$scope', '$http', function($scope, $http) {
         $scope.submit = function() {
-		console.log($scope);
+            console.log($scope);
             $http.post('http://wontonst.com', {
                 name: $scope.name,
                 email: $scope.email,
@@ -113,7 +113,7 @@
 })();
 (function() {
     var app = angular.module('qred-edit-profile', []);
-    app.controller('EditProfileController', ['$scope','$http', function($scope,$http) {
+    app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 console.log(data);
@@ -135,7 +135,7 @@
                     country: 'United States',
                     postal: '95129',
                     email: 'rchang@zheng.com',
-			phone_numbers: [ '888-888-9999', '123-333-1111'],
+                    phone_numbers: ['888-888-9999', '123-333-1111'],
                     sites: [{
                         url: 'http://google.com',
                         name: 'Google'
@@ -147,23 +147,26 @@
                         name: 'YouTube'
                     }]
                 };
-				$scope.profile=data;
+                $scope.profile = data;
             });
         };
-		$scope.load();
+        $scope.load();
         $scope.submit = function() {
-		if($scope.new_site_name != '' && $scope.new_site_url != ''){
-		$scope.profile.sites.push({name:$scope.new_site_name,url:$scope.new_site_url});
-		}
-		if($scope.new_phone_number != ''){
-		$scope.profile.phone_numbers.push($scope.new_phone_number);
-		}
-		if($scope.new_address != ''){
-		$scope.profile.addresses.push($scope.new_address);
-		}
-		console.log($scope.profile);
+            if ($scope.new_site_name != '' && $scope.new_site_url != '') {
+                $scope.profile.sites.push({
+                    name: $scope.new_site_name,
+                    url: $scope.new_site_url
+                });
+            }
+            if ($scope.new_phone_number != '') {
+                $scope.profile.phone_numbers.push($scope.new_phone_number);
+            }
+            if ($scope.new_address != '') {
+                $scope.profile.addresses.push($scope.new_address);
+            }
+            console.log($scope.profile);
             $http.post('http://wontonst.com', {
-                profile:$scope.profile
+                profile: $scope.profile
             }).success(function(data, status, headers, config) {
                 console.log(response);
                 $location.path('/profile'); //TODO GET PROFILES URL
