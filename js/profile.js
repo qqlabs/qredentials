@@ -32,7 +32,7 @@
         $scope.profile = {};
         $scope.load = function() {
             // $http.get('&id=' + id). //TODO get URL
-            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
                 $scope.profile.address = data.addresses[0];
