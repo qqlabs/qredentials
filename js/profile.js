@@ -164,18 +164,20 @@
             //     $scope.profile = data;
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
+                data = data.entities[0];
                 $scope.profile = data;
+                $scope.profile.email = data.username;
                 $scope.profile.address = ((data.addresses != null) && (data.addresses.length > 0) ? data.addresses[0]: '');
                 $scope.profile.phone_number = ((data.phone_numbers != null) && (data.phone_numbers.length > 0) ? data.phone_numbers[0] : '');
                 $scope.profile.site = ((data.sites != null) && (data.sites.length > 0) ? data.sites[0].url : '');
-                $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http://qred.cloudapp.net/browse.html?id=" + data.user.uuid;
+                $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http://qred.cloudapp.net/browse.html?id=" + data.uuid;
 
                 splitname = data.name.split(" ");
                 vc = "BEGIN:VCARD\nVERSION:3.0\n";
                 vc += "N:" + splitname[1] + ";" + splitname[0] + "\n";
                 vc += "FN:" + splitname[0] + "\n";
-                vc += "EMAIL:" + data.email + "\n";
-                vc += "TEL;TYPE=HOME:" + data.phone_numbers[0] + "\n";
+                vc += "EMAIL:" + $scope.profile.email + "\n";
+                vc += "TEL;TYPE=HOME:" + $scope.profile.phone_number + "\n";
                 vc += "END:VCARD";
                 vc = encodeURIComponent(vc);
 
