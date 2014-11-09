@@ -242,10 +242,11 @@
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.put('/api/v1/users/me', {
                 // profile: $scope.profile
-                entities[0].name: profile.name,
-                entities[0].username: profile.email,                
-                entities[0].phone_numbers = profile.phone_numbers,
-                
+                entities{
+                    name: profile.name,
+                    username: profile.email,                
+                    phone_numbers = profile.phone_numbers,
+                } 
             }).success(function(data, status, headers, config) {
                 $location.path('/profile'); //TODO GET PROFILES URL
             }).error(function(data, status, headers, config) {
