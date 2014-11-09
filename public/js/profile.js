@@ -1,5 +1,18 @@
 (function() {
-    var app = angular.module('qred-profile', []);
+    var app = angular.module('qred-profile', ['ngRoute']);
+	app.config(function($routeProvider) {
+        $routeProvider.when('/', {
+                templateUrl: '/directives/profile.html',
+            })
+            .when('/my', {
+                templateUrl: '/directives/mycard.html',
+            });
+    });
+	app.controller('BrowseController',['$scope',function($scope){
+	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
+	
+	
+	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
         $scope.profile = {};
         $scope.load = function(id) {
