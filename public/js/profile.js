@@ -1,6 +1,10 @@
 (function() {
-    var app = angular.module('qred-profile', ['ngRoute']);
-    app.config(function($routeProvider) {
+    var app = angular.module('qred-profile', ['ngRoute','LocalStorageModule']);
+    app.config(function($routeProvider, localStorageServiceProvider) {
+	
+  localStorageServiceProvider
+    .setPrefix('qred');
+	
         $routeProvider.when('/', {
             templateUrl: '/directives/profile.html',
         })
@@ -14,7 +18,9 @@
            templateUrl: '/directives/wall.html',
        });
     });
-	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
+	app.controller('BrowseController',['$scope','$rootScope','localStorageService', function($scope,$rootScope,localStorageService){
+	localStorageService.set('test','400');
+	console.log(localStorageService.keys());
 }]);
 
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
