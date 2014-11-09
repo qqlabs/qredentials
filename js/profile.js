@@ -30,8 +30,11 @@
 
         $('#fuckthis').css('background-image', 'url(/img/desk.jpg)');
         $scope.profile = {};
-        $scope.load = function(id) {
-            $http.get('&id=' + id). //TODO get URL
+        $scope.load = function() {
+            // $http.get('&id=' + id). //TODO get URL
+            $http.post('api/', {
+                access_token: localStorageService.get('token')
+            })
             success(function(data, status, headers, config) {
                 $scope.profile = data;
             }).
