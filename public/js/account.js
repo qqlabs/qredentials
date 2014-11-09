@@ -10,7 +10,7 @@
                 controller: 'LoginController'
             });
     });
-    app.controller('LoginFormController', ['$scope', '$http', '$location', function($scope, $http, $location) {
+    app.controller('LoginController', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.emailTaken = false;
         $scope.submit = function() {
             $scope.emailTaken = false;
