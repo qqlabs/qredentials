@@ -14,19 +14,31 @@
            templateUrl: '/directives/wall.html',
        });
     });
+app.directive("myStyle", function (){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs)
+        {
+            var el   = element[0],
+                attr = el.getAttribute('style');
 
-    app.directive('backImg', function(){
-        return function(scope, element, attrs){
-            attrs.$observe('backImg', function(value) {
-                element.css({
-                    'background': 'url(' + value +')'
-                });
+            el.setAttribute('style', attr);
+
+            // We need to watch for changes in the style in case required data is not yet ready when compiling
+            attrs.$observe('style', function (){
+                attr = el.getAttribute('style');
+
+                if(attr)
+                {
+                    el.setAttribute('style', attr);
+                }
             });
-        };
-    });
-    app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
-       $rootScope.getBg = function(){
-           return {
+        }
+    };
+});
+	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
+	$rootScope.getBg = function(){
+	return {
 	//'background-image' : 'url(/img/desk.jpg)'
     'background-color' : '#555'
 }
@@ -146,14 +158,6 @@ app.controller('WallController', ['$scope', '$rootScope', '$http', function($sco
         $scope.load();
     }]);
 app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
-
-    <<<<<<< HEAD
-    $rootScope.bg = {'background-image' : 'url(/img/gray.jpg)'};
-    $scope.load = function() {
-        $http.get('/').success(function(data, status, headers, config) {
-
-        }).error(function(data, status, headers, config) {
-            =======
             $rootScope.getBg = function(){
                return {
 	//'background-image' : 'url(/img/gray.jpg)'
@@ -164,7 +168,6 @@ $scope.load = function() {
     $http.get('/').success(function(data, status, headers, config) {
         
     }).error(function(data, status, headers, config) {
-        >>>>>>> 2a8a77293d9e646eed8701fd217b8fd0261e03ae
                 //TODO "conn bad
 
                 data = {
