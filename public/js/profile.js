@@ -14,42 +14,12 @@
            templateUrl: '/directives/wall.html',
        });
     });
-app.directive("myStyle", function (){
-    return {
-        restrict: 'A',
-        link: function(scope, element, attrs)
-        {
-            var el   = element[0],
-                attr = el.getAttribute('style');
-
-            el.setAttribute('style', attr);
-
-            // We need to watch for changes in the style in case required data is not yet ready when compiling
-            attrs.$observe('style', function (){
-                attr = el.getAttribute('style');
-
-                if(attr)
-                {
-                    el.setAttribute('style', attr);
-                }
-            });
-        }
-    };
-});
 	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
-	$rootScope.getBg = function(){
-	return {
-	//'background-image' : 'url(/img/desk.jpg)'
-    'background-color' : '#555'
-}
-};
 }]);
 
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
-     $rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
-     $scope.$on('$includeContentLoaded',function(){
-         console.log("fuck!");
-     });
+	
+	$('#fuckthis').css('background-image' , 'url(/img/desk.jpg)');
      $scope.profile = {};
      $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
@@ -159,16 +129,11 @@ app.controller('WallController', ['$scope', '$rootScope', '$http', function($sco
         $scope.load();
     }]);
 app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
-            $rootScope.getBg = function(){
-               return {
-	//'background-image' : 'url(/img/gray.jpg)'
-	'background-color' : '#333'
-}
-};
-$scope.load = function() {
-    $http.get('/').success(function(data, status, headers, config) {
-        
-    }).error(function(data, status, headers, config) {
+	$('#fuckthis').css('background-image' , 'url(/img/gray.jpg)');
+        $scope.load = function() {
+            $http.get('/').success(function(data, status, headers, config) {
+                
+            }).error(function(data, status, headers, config) {
                 //TODO "conn bad
 
                 data = {
@@ -228,7 +193,7 @@ $scope.submit = function() {
     }]);
 app.controller('RolodexController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {  
 	
-	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
+	$('#fuckthis').css('background-image' , 'url(/img/business.jpg)');
     $scope.cards = [];
     $scope.load = function() {
         $http.get('/').success(function(data, status, headers, config) {
