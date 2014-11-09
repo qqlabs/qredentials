@@ -19,7 +19,7 @@
             console.log($scope.email);
             $http.post('/api/v1/token', {
 			'grant_type': 'password',
-                email: $scope.email,
+                username: $scope.email,
                 password: $scope.password
             }).success(function(data, status, headers, config) {
                 $location.path('/profile');
@@ -34,7 +34,7 @@
         $scope.submit = function() {
             $http.post('/api/v1/users', {
                 name: $scope.name,
-                email: $scope.email,
+                username: $scope.email,
                 password: $scope.password,
             }).success(function(data, status, headers, config) {
                 console.log(data);
