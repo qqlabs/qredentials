@@ -17,7 +17,6 @@
 	app.controller('BrowseController',['$scope',function($scope){
 	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
 	
-	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
         $scope.profile = {};
@@ -114,9 +113,14 @@
         $scope.load();
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
+	$scope.$on('$viewContentLoaded', function() {
+	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+	console.log('logging parent');
+	console.log($scope.$parent);
+});
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
-                console.log(data);
+                
             }).error(function(data, status, headers, config) {
                 //TODO "conn bad
 
@@ -176,7 +180,10 @@
         };
     }]);
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
-	$parent.bg={'background-image' : 'url(img/business.jpg)'};
+	
+	$scope.$on('$viewContentLoaded', function() {
+	$scope.$parent.bg={'background-image' : 'url(img/business.jpg)'};
+});
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
