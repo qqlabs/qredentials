@@ -1,6 +1,6 @@
 (function() {
     var app = angular.module('qred-profile', []);
-    app.controller('ProfileController', ['$scope', '$http', function($scope, $http) {
+    app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
         $scope.profile = {};
         $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
@@ -36,6 +36,7 @@
                         name: 'YouTube'
                     }]
                 };
+				$rootScope.profile = data;
                 $scope.profile = data;
                 $scope.profile.address = data.addresses[0];
                 $scope.profile.phone_number = data.phone_numbers[0];
@@ -44,37 +45,54 @@
         };
         $scope.load();
     }]);
-    app.controller('WallController', ['$scope','$http', function($scope,$http) {
+    app.controller('WallController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
         $scope.posts = [];
+        $scope.submit = function() {
+            $http.post('http://wontonst.com', {
+                content: $scope.new_post,
+                target: $rootScope.profile.email
+            }).success(function(data, status, headers, config) {
+                $scope.posts.push({
+                    author: $scope.self.name,
+                    content: $scope.new_post,
+                    pic : $scope.self.pic
+                });
+            }).error(function(data, status, headers, config) {});
+        };
         $scope.load = function(id) {
+            $http.get('').success(function(data) { //grab self
+                $scope.self = data;
+            }).error(function(data) {
+
+            });
             $http.get('&id=' + id). //TODO get URL
             success(function(data, status, headers, config) {
                 $scope.posts = JSON.parse(data);
             }).
             error(function(data, status, headers, config) {
                 //TODO error
-				data =[{
-            author: 'Kate',
-            pic: 'http://placehold.it/50x50&text=[K]',
-            content: 'Yo wanna buy a joint',
-            comments: [{
-                author: 'Quentin',
-                pic: 'http://placehold.it/50x50&text=[Q]',
-                content: 'hell yea dawg'
-            }, {
-                author: 'Jack',
-                pic: 'http://placehold.it/50x50&text=[J]',
-                content: 'durgz maek u short n r not c00l'
-            }]
-        }, {
-            author: 'Jack',
-            pic: 'http://placehold.it/50x50&text=[J]',
-            content: 'u suk at programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'
-        }, ];
-		$scope.posts=data;
+                data = [{
+                    author: 'Kate',
+                    pic: 'http://placehold.it/50x50&text=[K]',
+                    content: 'Yo wanna buy a joint',
+                    comments: [{
+                        author: 'Quentin',
+                        pic: 'http://placehold.it/50x50&text=[Q]',
+                        content: 'hell yea dawg'
+                    }, {
+                        author: 'Jack',
+                        pic: 'http://placehold.it/50x50&text=[J]',
+                        content: 'durgz maek u short n r not c00l'
+                    }]
+                }, {
+                    author: 'Jack',
+                    pic: 'http://placehold.it/50x50&text=[J]',
+                    content: 'u suk at programing n00b l2p c++ gtfolmaorofl nubcakes, peace.'
+                }, ];
+                $scope.posts = data;
             });
         };
-		$scope.load();
+        $scope.load();
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.load = function() {

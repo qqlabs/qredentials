@@ -69,16 +69,17 @@
       </div>
     </div>
      
-    <div class="large-8 columns" ng-controller="WallController">
-      <form data-abide>
+    <div class="large-8 columns" ng-controller="WallController as wc">
+      <form data-abide ng-submit="submit()">
      <div class="row">
       <div class ="large-8 columns">
       <label><strong>Write a Post</strong>
-        <textarea placeholder="Say Hi to Kate!"></textarea>
+        <textarea ng-model="new_post" placeholder="Say Hi!"></textarea>
       </label>
       <button type="submit" class="small button">Post</button>
       </div>
-    </div></form>
+    </div>
+	</form>
        
       <div class="row" ng-repeat="post in posts | limitTo:5">
         <div class="large-2 columns small-3"><img ng-src="{{post.pic}}"/></div>
