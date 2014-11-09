@@ -17,7 +17,6 @@
 	app.controller('BrowseController',['$scope',function($scope){
 	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
 	
-	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
         $scope.profile = {};
@@ -114,6 +113,9 @@
         $scope.load();
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
+	$scope.$on('$viewContentLoaded', function() {
+	$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+});
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 console.log(data);
@@ -176,7 +178,10 @@
         };
     }]);
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
+	
+	$scope.$on('$viewContentLoaded', function() {
 	$parent.bg={'background-image' : 'url(img/business.jpg)'};
+});
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
