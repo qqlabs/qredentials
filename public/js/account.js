@@ -1,6 +1,8 @@
 (function() {
-    var app = angular.module('qred-account', ['ngRoute']);
-    app.config(function($routeProvider) {
+    var app = angular.module('qred-account', ['ngRoute','LocalStorageModule']);
+    app.config(function($routeProvider, localStorageServiceProvider) {
+  localStorageServiceProvider
+    .setPrefix('qred');
         $routeProvider.when('/', {
                 templateUrl: '/directives/register.html',
                 controller: 'RegisterController'
