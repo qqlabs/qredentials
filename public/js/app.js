@@ -25,7 +25,7 @@
             templateUrl: 'roy.html'
         };
     });
-    app.controller('ProfileController', ['$scope','$http', function($scope,$http) {
+    app.controller('ProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.profile = {};
         $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
@@ -62,9 +62,9 @@
                     }]
                 };
                 $scope.profile = data;
-				$scope.profile.address = data.addresses[0];
-				$scope.profile.phone_number = data.phone_numbers[0];
-				$scope.profile.site = data.sites[0].url;
+                $scope.profile.address = data.addresses[0];
+                $scope.profile.phone_number = data.phone_numbers[0];
+                $scope.profile.site = data.sites[0].url;
             });
         };
         $scope.load();
