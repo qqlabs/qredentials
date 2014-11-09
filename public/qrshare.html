@@ -12,30 +12,22 @@
     <script src="js/jsqr-0.2-min.js"></script>
     <script src="js/qrgen.js"></script>
   </head>
-  <body>
+  <body ng-controller="ProfileController">
 
    
   <div class="row">
     <article>
     <div class = "large-4 column">
       <h3> Share Q.R. </h3>
-      <canvas id="qrcanvas"></canvas></div>
+      <img id="qrcanvas" width="100" height="100" ng-src="{{profile.qrurl}}"></div>
 
     <div class = "large-4 column end" style = "padding:0">
       <h3> Share Contact </h3>
-      <img id="qrimage">
+      <img id="qrimage" width="100" height="100" ng-src="{{profile.qrcontact}}"></div>
 
     </article>
-    </div>
+    
   </footer>
     
   </body>
-
-  <script type="text/javascript">
-      $(document).ready(function(){
-        var qrcan = generate("www.google.com");
-        $("#qrcanvas").replaceWith(qrcan);
-        $("#qrimage").replaceWith(generateVCARD(qrcan.width, qrcan.height, "chang", "ray", "hacksc@usc.edu", "3023854732"));
-      });
-  </script>
 </html>
