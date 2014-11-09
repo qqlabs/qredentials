@@ -162,10 +162,10 @@ app.controller('EditProfileController', ['$scope', '$http', '$rootScope', functi
                return {
 	//'background-image' : 'url(/img/gray.jpg)'
 	'background-color' : '#333'
-	}
+	};
+	};
 	console.log("fuck this?");
 	$('#fuckthis').css('background-color' , '#333');
-	};
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
