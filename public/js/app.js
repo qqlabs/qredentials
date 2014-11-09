@@ -1,5 +1,5 @@
 (function() {
-    var app = angular.module('qred-login', []);
+    var app = angular.module('qred', []);
     app.controller('LoginFormController', ['$scope', '$http', '$location', function($scope, $http, $location) {
         $scope.emailTaken = false;
         $scope.submit = function() {
@@ -16,9 +16,6 @@
             });
         };
     }]);
-})();
-(function() {
-    var app = angular.module('qred-profile', []);
     app.directive('royDiv', function() {
         return {
             restrict: 'E',
@@ -98,16 +95,14 @@
             });
         };
     }]);
-})();
-(function() {
-    var app = angular.module('qred-register', []);
     app.controller('RegisterController', ['$scope', '$http', function($scope, $http) {
         $scope.submit = function() {
             console.log($scope);
-            $http.post('http://wontonst.com', {
+            $http.post('/res/account.php', {
                 name: $scope.name,
                 email: $scope.email,
-                password: $scope.password
+                password: $scope.password,
+				action: "register"
             }).success(function(data, status, headers, config) {
                 console.log(response);
                 $location.path('/profile'); //TODO GET PROFILES URL
@@ -116,9 +111,6 @@
             });
         };
     }]);
-})();
-(function() {
-    var app = angular.module('qred-edit-profile', []);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
@@ -181,9 +173,6 @@
             });
         };
     }]);
-})();
-(function() {
-    var app = angular.module('qred-rolodex', []);
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {
         $scope.cards = [];
         $scope.load = function() {
