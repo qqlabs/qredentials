@@ -35,9 +35,9 @@
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
-                $scope.profile.address = data.addresses[0];
-                $scope.profile.phone_number = data.phone_numbers[0];
-                $scope.profile.site = data.sites[0].url;
+                $scope.profile.address = data.addresses[0] || '';
+                $scope.profile.phone_number = data.phone_numbers[0] || '';
+                $scope.profile.site = data.sites[0].url || '';
                 $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http%3A%2F%2Fqred.cloudapp.net%2Fbrowse.html%3Fid%3D" + data.user.uuid;
 
                 splitname = data.name.split(" ");
@@ -160,12 +160,12 @@
             // $http.defaults.headers.common.Authorization = localStorageService.get('token');
             // $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
             //     $scope.profile = data;
-            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
-                $scope.profile.address = data.addresses[0];
-                $scope.profile.phone_number = data.phone_numbers[0];
-                $scope.profile.site = data.sites[0].url;
+                $scope.profile.address = data.addresses[0] || '';
+                $scope.profile.phone_number = data.phone_numbers[0] || '';
+                $scope.profile.site = data.sites[0].url || '';
                 $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=http://qred.cloudapp.net/browse.html?id=" + data.user.uuid;
 
                 splitname = data.name.split(" ");
