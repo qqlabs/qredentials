@@ -1,10 +1,10 @@
 (function() {
     var app = angular.module('qred-profile', ['ngRoute']);
 	app.config(function($routeProvider) {
-        $routeProvider.when('/', {
+        $routeProvider.when('/browse', {
                 templateUrl: '/directives/profile.html',
             })
-            .when('/login', {
+            .when('/my', {
                 templateUrl: '/directives/mycard.html',
             });
     });
