@@ -113,7 +113,7 @@
         $scope.load();
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
-	$scope.$on('$viewContentLoaded', function() {
+	$scope.$watch('$viewContentLoaded', function() {
 	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
 	console.log('logging parent');
 	console.log($scope.$parent);
