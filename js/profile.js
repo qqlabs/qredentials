@@ -34,6 +34,7 @@
             // $http.get('&id=' + id). //TODO get URL
             $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
+                data = data.entities[0];
                 $scope.profile = data;
                 $scope.profile.address = ((data.addresses != null) && (data.addresses.length > 0) ? data.addresses[0]: '');
                 $scope.profile.phone_number = ((data.phone_numbers != null) && (data.phone_numbers.length > 0) ? data.phone_numbers[0] : '');
