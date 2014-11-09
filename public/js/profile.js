@@ -14,6 +14,13 @@
 			templateUrl: '/directives/wall.html',
 			});
     });
+	app.directive('backImg', function(){
+    return function(scope, rootScope, element, attrs){
+        attrs.$observe('backImg', function(value) {
+            element.css(rootscope.getBg());
+        });
+    };
+});
 	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
 	$rootScope.getBg = function(){
 	return {
