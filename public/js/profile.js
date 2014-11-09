@@ -120,7 +120,7 @@
 });
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
-                console.log(data);
+                
             }).error(function(data, status, headers, config) {
                 //TODO "conn bad
 
