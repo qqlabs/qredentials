@@ -115,7 +115,7 @@
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
 
 	console.log($scope.$parent);
-	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+	//$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
 	$scope.$parent.$apply();
 	console.log("wtf man");
 	console.log($scope.$parent);
