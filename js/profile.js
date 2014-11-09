@@ -156,7 +156,7 @@
         };
         $scope.load();
     }]);
-    app.controller('EditProfileController', ['$scope', '$http', '$rootScope', 'localStorageService', function($scope, $http, $rootScope, localStorageService) {
+    app.controller('EditProfileController', ['$scope', '$http', '$location', '$rootScope', 'localStorageService', function($scope, $http, $location, $rootScope, localStorageService) {
         $('#fuckthis').css('background-image', 'url(/img/gray.jpg)');
         $scope.load = function() {
             // $http.defaults.headers.common.Authorization = localStorageService.get('token');
