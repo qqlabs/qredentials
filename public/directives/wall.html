@@ -17,7 +17,7 @@
 
 
         <div ng-controller="RolodexController as rolo" style= "font-family: 'Alegreya', serif;">
-
+{{ rolo }}
                 <div class="large-12 columns" style = "padding-top: 0.5cm " ng-repeat="duocards in cards" ng-if="$index % 2 == 0">
                     <div class="row">
                          <a href="profile.html" ng-repeat="card in cards.slice($index, $index+2)"> 
