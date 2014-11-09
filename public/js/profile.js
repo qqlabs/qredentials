@@ -10,7 +10,7 @@
 			.when('/edit',{
 			templateUrl: '/directives/edit_profile.html',
 			})
-			.when('wall',{
+			.when('/wall',{
 			templateUrl: '/directives/wall.html',
 			});
     });
