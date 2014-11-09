@@ -14,8 +14,8 @@
 			templateUrl: '/directives/wall.html',
 			});
     });
-	app.controller('BrowseController',['$scope',function($scope){
-	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
+	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootSope){
+	$rootScope.bg={'background-image' : 'url(img/desk.jpg)'};
 	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
