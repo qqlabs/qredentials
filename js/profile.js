@@ -239,7 +239,7 @@
                 $scope.profile.addresses.push($scope.new_address);
             }
             console.log($scope.profile);
-            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.defaults.headers.common.Authorization = 'Bearer ' + localStorageService.get('token');
             $http.post('/api/v1/users/me', {
                 profile: $scope.profile
             }).success(function(data, status, headers, config) {
