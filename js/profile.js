@@ -23,7 +23,7 @@
     });
     app.controller('BrowseController', ['$scope', '$rootScope', 'localStorageService', function($scope, $rootScope, localStorageService) {
         localStorageService.set('test', '400');
-        console.log(localStorageService.keys(), localStorageService.values());
+        console.log(localStorageService.keys(), localStorageService.get('token'));
     }]);
 
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', 'localStorageService', function($scope, $rootScope, $http, localStorageService) {
