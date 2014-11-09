@@ -114,7 +114,7 @@
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
 	$scope.$on('$viewContentLoaded', function() {
-	$parent.bg={'background-image' : 'url(img/gray.jpg)'};
+	$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
 	console.log($parent);
 });
         $scope.load = function() {
@@ -181,7 +181,7 @@
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
 	
 	$scope.$on('$viewContentLoaded', function() {
-	$parent.bg={'background-image' : 'url(img/business.jpg)'};
+	$scope.$parent.bg={'background-image' : 'url(img/business.jpg)'};
 });
         $scope.cards = [];
         $scope.load = function() {
