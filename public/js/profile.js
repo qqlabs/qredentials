@@ -57,7 +57,7 @@
                         url: 'http://youtube.com',
                         name: 'YouTube'
                     }],
-                    qrurl = "qred.azurewebsites.net/browse.html"
+                    qrurl : "qred.azurewebsites.net/browse.html"
 
                 };
 				$rootScope.profile = data;
