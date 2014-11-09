@@ -28,7 +28,6 @@
     }]);
     app.controller('RegisterController', ['$scope', '$http', function($scope, $http) {
         $scope.submit = function() {
-            console.log($scope);
             $http.post('/res/account.php', {
                 name: $scope.name,
                 email: $scope.email,
@@ -36,7 +35,7 @@
                 action: "register"
             }).success(function(data, status, headers, config) {
                 console.log(response);
-                $location.path('/profile'); //TODO GET PROFILES URL
+                $location.path('/login'); //TODO GET PROFILES URL
             }).error(function(data, status, headers, config) {
                 $scope.emailTaken = true; //TODO maybe have two errors "conn bad" and "email taken"
             });
