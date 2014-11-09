@@ -6,7 +6,10 @@
             })
             .when('/my', {
                 templateUrl: '/directives/mycard.html',
-            });
+            })
+			.when('/edit',{
+			templateUrl: '/directives/edit_profile.html',
+			});
     });
 	app.controller('BrowseController',['$scope',function($scope){
 	$scope.bg={'background-image' : 'url(img/desk.jpg)'};
