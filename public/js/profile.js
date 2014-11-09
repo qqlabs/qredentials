@@ -9,6 +9,9 @@
             })
 			.when('/edit',{
 			templateUrl: '/directives/edit_profile.html',
+			})
+			.when('wall',{
+			templateUrl: '/directives/wall.html',
 			});
     });
 	app.controller('BrowseController',['$scope',function($scope){
