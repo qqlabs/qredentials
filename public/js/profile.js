@@ -20,6 +20,9 @@
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
 	$rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
+	$scope.$on('$includeContentLoaded',function(){
+	console.log("fuck!");
+	});
         $scope.profile = {};
         $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
