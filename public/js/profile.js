@@ -19,6 +19,7 @@
 	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
+	$rootScope.bg={'background-image' : 'url(img/desk.jpg)'};
         $scope.profile = {};
         $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
@@ -115,7 +116,6 @@
     app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
 
 	$rootScope.bg = {'background-image' : 'url(img/gray.jpg)'};
-	$rootScope.$apply();
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
@@ -180,7 +180,6 @@
     app.controller('RolodexController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {  
 	
 	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
-	$rootScope.$apply();
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
