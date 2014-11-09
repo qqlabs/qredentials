@@ -3,11 +3,9 @@
 	app.config(function($routeProvider) {
         $routeProvider.when('/', {
                 templateUrl: '/directives/profile.html',
-                controller: 'RegisterController'
             })
             .when('/login', {
                 templateUrl: '/directives/mycard.html',
-                controller: 'LoginController'
             });
     });
 	app.controller('BrowseController',['$scope',function($scope){
