@@ -32,12 +32,6 @@
 
                     <div class = "large-2 column large-offset-5" style="padding: 0px">
                         <img ng-src="{{profile.pic}}" height="100" width="100" id="qrcanvas"></img>
-                        <script type="text/javascript">
-                          $(document).ready(function(){
-                            var qrcan = generate("www.google.com");
-                            $("#qrcanvas").replaceWith(qrcan);
-                        });
-                      </script>
                   </div>
 
               </div>
@@ -61,3 +55,10 @@
 </div>
 
 </div>
+
+<script type="text/javascript">
+                          $(document).ready(function(){
+                            var qrcan = generate("www.google.com");
+                            $("#qrcanvas").replaceWith(qrcan);
+                        });
+                      </script>
