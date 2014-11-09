@@ -114,11 +114,7 @@
     }]);
     app.controller('EditProfileController', ['$scope', '$http', function($scope, $http) {
 
-	console.log($scope.$parent);
-	//$scope.$parent.bg={'background-image' : 'url(img/gray.jpg)'};
-	$scope.$parent.$apply();
-	console.log("wtf man");
-	console.log($scope.$parent);
+	$rootScope.bg = {'background-image' : 'url(img/gray.jpg)'};
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
@@ -182,6 +178,7 @@
     }]);
     app.controller('RolodexController', ['$scope', '$http', function($scope, $http) {  
 	
+	$rootScope.bg = {'background-image' : 'url(img/business.jpg)'};
         $scope.cards = [];
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
