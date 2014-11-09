@@ -56,13 +56,16 @@
                     }, {
                         url: 'http://youtube.com',
                         name: 'YouTube'
-                    }]
+                    }],
+                    qrurl : "qred.azurewebsites.net/browse.html"
+
                 };
 				$rootScope.profile = data;
                 $scope.profile = data;
                 $scope.profile.address = data.addresses[0];
                 $scope.profile.phone_number = data.phone_numbers[0];
                 $scope.profile.site = data.sites[0].url;
+                $scope.profile.qrurl = "http://chart.apis.google.com/chart?cht=qr&chs=100x100&chl=" + data.qrurl;
             });
         };
         $scope.load();

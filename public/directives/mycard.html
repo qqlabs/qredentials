@@ -30,12 +30,7 @@
                     </div>
 
                     <div class = "large-2 column large-offset-5" style="padding: 0px">
-                        <img src="" height="100" width="100" id="qrcanvas"></img>
-                        <script type="text/javascript">
-                            $(document).ready(function(){
-                                $("#qrcanvas").attr("src", generateURLCARD(100,100,"google.com"));
-                            });
-                        </script>
+                    <img ng-src="{{profile.qrurl}}" height="100" width="100" id="qrcanvas"></img>
                     </div>
 
                 </div>
