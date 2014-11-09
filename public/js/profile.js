@@ -15,6 +15,7 @@
 			});
     });
 	app.controller('BrowseController',['$scope','$rootScope',function($scope,$rootScope){
+	$rootScope.bg={'background-image' : 'url(/img/desk.jpg)'};
 	
 	}]);
     app.controller('ProfileController', ['$scope', '$rootScope', '$http', function($scope, $rootScope, $http) {
