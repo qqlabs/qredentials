@@ -25,43 +25,49 @@
             templateUrl: 'roy.html'
         };
     });
-    app.controller('ProfileController', ['$scope', function($scope) {
-        $scope.profile = {
-            name: "Roy Chang",
-            pic: "http://placehold.it/300x240&text=[img]",
-            company: "HackSC",
-            title: "Senior Executive Intern",
-            addresses: [
-                "123 Easy St.",
-                "Apt 44",
-                "District 13"
-            ],
-            city: 'San Jose',
-            state: 'CA',
-            country: 'United States',
-            postal: '95129',
-            email: 'rchang@zheng.com',
-            phone_numbers: ['888-888-9999', '123-333-1111'],
-            sites: [{
-                url: 'http://google.com',
-                name: 'Google'
-            }, {
-                url: 'http://yahoo.com',
-                name: 'Yahoo'
-            }, {
-                url: 'http://youtube.com',
-                name: 'YouTube'
-            }]
-        };
-        this.load = function(id) {
+    app.controller('ProfileController', ['$scope','$http', function($scope,$http) {
+        $scope.profile = {};
+        $scope.load = function(id) {
             $http.get('&id=' + id). //TODO get URL
             success(function(data, status, headers, config) {
-                $scope.profile = d
+                $scope.profile = data;
             }).
             error(function(data, status, headers, config) {
                 //TODO error
+                data = {
+                    name: "Roy Chang",
+                    pic: "http://placehold.it/300x240&text=[img]",
+                    company: "HackSC",
+                    title: "Senior Executive Intern",
+                    addresses: [
+                        "123 Easy St.",
+                        "Apt 44",
+                        "District 13"
+                    ],
+                    city: 'San Jose',
+                    state: 'CA',
+                    country: 'United States',
+                    postal: '95129',
+                    email: 'rchang@zheng.com',
+                    phone_numbers: ['888-888-9999', '123-333-1111'],
+                    sites: [{
+                        url: 'http://google.com',
+                        name: 'Google'
+                    }, {
+                        url: 'http://yahoo.com',
+                        name: 'Yahoo'
+                    }, {
+                        url: 'http://youtube.com',
+                        name: 'YouTube'
+                    }]
+                };
+                $scope.profile = data;
+				$scope.profile.address = data.addresses[0];
+				$scope.profile.phone_number = data.phone_numbers[0];
+				$scope.profile.site = data.sites[0].url;
             });
         };
+        $scope.load();
     }]);
     app.controller('WallController', ['$scope', function($scope) {
         $scope.posts = [{
@@ -191,42 +197,38 @@
                     city: 'San Luis Obispo',
                     state: 'CA',
                     country: 'USA',
-					site:'www.lame.com',
+                    site: 'www.lame.com',
                     email: 'roi@roy.com'
-                },
-				{
+                }, {
                     name: 'James Flurry',
-					site:'www.lame.com',
+                    site: 'www.lame.com',
                     phone_number: '333-333-3333',
                     address: '123 Easy St.',
                     city: 'San Luis Obispo',
                     state: 'CA',
                     country: 'USA',
                     email: 'roi@roy.com'
-                },
-				{
+                }, {
                     name: 'Blake Trillington',
-					site:'www.lame.com',
+                    site: 'www.lame.com',
                     phone_number: '333-333-3333',
                     address: '123 Easy St.',
                     city: 'San Luis Obispo',
                     state: 'CA',
                     country: 'USA',
                     email: 'roi@roy.com'
-                },
-				{
+                }, {
                     name: 'Vlad Zhukov',
-					site:'www.lame.com',
+                    site: 'www.lame.com',
                     phone_number: '333-333-3333',
                     address: '123 Easy St.',
                     city: 'San Luis Obispo',
                     state: 'CA',
                     country: 'USA',
                     email: 'roi@roy.com'
-                },
-				{
+                }, {
                     name: 'Gilberto Lomberto Jose Luis Garcia de Oaxaca',
-					site:'www.lame.com',
+                    site: 'www.lame.com',
                     phone_number: '333-333-3333',
                     address: '123 Easy St.',
                     city: 'San Luis Obispo',
@@ -234,7 +236,7 @@
                     country: 'USA',
                     email: 'roi@roy.com'
                 }];
-				$scope.cards=data;
+                $scope.cards = data;
             });
         };
         $scope.load();
