@@ -30,10 +30,10 @@
 
         $('#fuckthis').css('background-image', 'url(/img/desk.jpg)');
         $scope.profile = {};
-        $scope.load = function(id) {
+        $scope.load = function() {
             // $http.get('&id=' + id). //TODO get URL
             $http.defaults.headers.common.Authorization = localStorageService.get('token');
-            $http.get('/api/v1/users/' + id).success(function(data, status, headers, config) {
+            $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
                 $scope.profile.address = data.addresses[0];
                 $scope.profile.phone_number = data.phone_numbers[0];
