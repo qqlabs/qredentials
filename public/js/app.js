@@ -19,6 +19,12 @@
 })();
 (function() {
     var app = angular.module('qred-profile', []);
+	app.directive('royDiv',function(){
+	return{
+	restrict:'E',
+	templateUrl:'roy.html'
+	};
+	});
     app.controller('ProfileController', ['$scope', function($scope) {
         $scope.profile = {
             name: "Roy Chang",
@@ -91,6 +97,7 @@
     var app = angular.module('qred-register', []);
     app.controller('RegisterController', ['$scope','$http' ,function($scope,$http) {
         $scope.submit = function() {
+		console.log($scope);
             $http.post('http://wontonst.com', {
                 name: $scope.name,
                 email: $scope.email,
