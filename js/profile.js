@@ -32,10 +32,8 @@
         $scope.profile = {};
         $scope.load = function() {
             // $http.get('&id=' + id). //TODO get URL
-            $http.post('api/', {
-                access_token: localStorageService.get('token')
-            })
-            success(function(data, status, headers, config) {
+            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
                 $scope.profile = data;
             }).
             error(function(data, status, headers, config) {
@@ -143,8 +141,9 @@
     app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http, $rootScope) {
         $('#fuckthis').css('background-image', 'url(/img/gray.jpg)');
         $scope.load = function() {
-            $http.get('/').success(function(data, status, headers, config) {
-
+            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.get('/api/v1/users/me').success(function(data, status, headers, config) {
+                $scope.profile = data;
             }).error(function(data, status, headers, config) {
                 //TODO "conn bad
 
@@ -193,7 +192,8 @@
                 $scope.profile.addresses.push($scope.new_address);
             }
             console.log($scope.profile);
-            $http.post('http://wontonst.com', {
+            $http.defaults.headers.common.Authorization = localStorageService.get('token');
+            $http.post('/api/v1/users/me', {
                 profile: $scope.profile
             }).success(function(data, status, headers, config) {
                 console.log(response);
