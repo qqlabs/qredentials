@@ -22,7 +22,7 @@
                 username: $scope.email,
                 password: $scope.password
             }).success(function(data, status, headers, config) {
-                $location.path('/profile');
+                $location.path('../browse.html');
                 localStorageService.set('token', data.access_token);
                 localStorageService.set('user_id', data.user.uuid);
             }).error(function(data, status, headers, config) {
