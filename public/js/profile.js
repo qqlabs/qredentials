@@ -122,7 +122,7 @@
     }]);
     app.controller('EditProfileController', ['$scope', '$http', '$rootScope', function($scope, $http , $rootScope) {
 
-	$rootScope.bg = {'background-image' : 'url(img/gray.jpg)'};
+	$rootScope.bg = {'background-image' : 'url(/img/gray.jpg)'};
         $scope.load = function() {
             $http.get('/').success(function(data, status, headers, config) {
                 
