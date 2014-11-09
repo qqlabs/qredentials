@@ -145,9 +145,18 @@
         };
 		$scope.load();
         $scope.submit = function() {
+		if($scope.new_site_name != '' && $scope.new_site_url != ''){
+		$scope.profile.sites.push({name:$scope.new_site_name,url:$scope.new_site_url});
+		}
+		if($scope.new_phone_number != ''){
+		$scope.profile.phone_numbers.push($scope.new_phone_number);
+		}
+		if($scope.new_address != ''){
+		$scope.profile.addresses.push($scope.new_address);
+		}
+		console.log($scope.profile);
             $http.post('http://wontonst.com', {
-                email: $scope.email,
-                password: $scope.password
+                profile:$scope.profile
             }).success(function(data, status, headers, config) {
                 console.log(response);
                 $location.path('/profile'); //TODO GET PROFILES URL

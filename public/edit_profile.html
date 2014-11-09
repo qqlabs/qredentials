@@ -32,7 +32,7 @@
   <h3> My Account </h3>
   <div class="name-field">
     <label>Your name <small>required</small>
-      <input ng-model="profile.name" type="text" required pattern="[a-zA-Z]+">
+      <input ng-model="profile.name" type="text" required pattern="[a-zA-Z ]+">
     </label>
     <small class="error">Name is required and must be a string.</small>
   </div>
@@ -44,13 +44,13 @@
   </div>
     <div class="password-field">
     <label>Password <small>required</small>
-      <input ng-model="password" type="password" id="password" required pattern="[a-zA-Z]+">
+      <input ng-model="password" type="password" id="password"  pattern="[a-zA-Z]+">
     </label>
     <small class="error">Your password must match the requirements</small>
   </div>
   <div class="password-confirmation-field">
     <label>Confirm Password <small>required</small>
-      <input type="password" required pattern="[a-zA-Z]+" data-equalto="password">
+      <input type="password"  pattern="[a-zA-Z]+" data-equalto="password">
     </label>
     <small class="error">The password did not match</small>
   </div>
@@ -65,8 +65,8 @@
   </div> 
   <div class="url-field">
     <label>Add a website 
-      <input placeholder="Site name" ng-model="new_site_name" type="text" required>
-      <input placeholder="Site URL" ng-model="new_site_url" type="url" required>
+      <input placeholder="Site name" ng-model="new_site_name" type="text" >
+      <input placeholder="Site URL" ng-model="new_site_url" type="url" >
     </label>
     <small class="error">This is not a valid URL</small>
   </div>
@@ -86,7 +86,7 @@
     <label ng-repeat="number in profile.phone_numbers"> Edit a Phone number
   <input ng-model="number" type="text"> </label>
     <label> Add a Phone number
-  <input ng-model="new_number" type="text"> </label>
+  <input ng-model="new_phone_number" type="text"> </label>
 
     <label> Company
   <input ng-model="profile.company" type="text"> </label>
