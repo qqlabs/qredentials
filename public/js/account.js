@@ -42,8 +42,6 @@
             });
         };
     }]);
-	})();
-	(function() {
     app.controller('ProfileController', ['$scope', '$http', function($scope, $http) {
         $scope.profile = {};
         $scope.load = function(id) {
